@@ -1,2 +1,3 @@
-# mlops_used_cars
-I will create a model to predict the price of a used car and a deployment pipeline with CI/CD.
+# Student Depresssion
+
+This is based on a dataset from Kaggle. It's about analyzing student depression and predict the depression possibilyt (Yes/No) for unseen data.
