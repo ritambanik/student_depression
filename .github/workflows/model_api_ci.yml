@@ -43,7 +43,7 @@ jobs:
 
       - name: Train the used car model and create the pkl file
         run: |
-          python used_car_price_prediction/usedcar_model/train_pipeline.py
+          python usedcar_model/train_pipeline.py
 
     #   - name: Run pytest
     #     run: |
@@ -58,7 +58,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
             name: usedcar_model-0.0.1-py3-none-any.whl
-            path: used_car_price_prediction/dist/*.whl
+            path: dist/*.whl
 
   docker:
     runs-on: ubuntu-latest
@@ -85,6 +85,6 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: ./used_car_price_prediction/usedcar_api
-          file: ./used_car_price_predictionusedcar_apii/Dockerfile
+          file: ./usedcar_api/Dockerfile
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/usedcar_api:latest
