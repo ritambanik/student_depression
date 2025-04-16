@@ -52,7 +52,7 @@ jobs:
       - name: Install the build package and run the build process on the bikeshare model to generate the wheel file
         run: |
           pip install --upgrade build
-          python -m build usecar_model
+          python -m build usedcar_model
 
       - name: Upload wheel file
         uses: actions/upload-artifact@v4
