@@ -84,7 +84,7 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v6
         with:
-          context: ./used_car_price_prediction/usedcar_api
+          context: ./usedcar_api
           file: ./usedcar_api/Dockerfile
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/usedcar_api:latest
