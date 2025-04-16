@@ -21,8 +21,8 @@ jobs:
       - name: Deploy to EC2
         run: |
           ssh ${{ secrets.EC2_USERNAME }}@${{ secrets.EC2_HOST }} '
-            docker pull ${{ secrets.DOCKERHUB_USERNAME }}/bikespare_api:latest
-            docker stop bike-share || true
-            docker rm bike-share  || true
-            docker run -d --name bike-share -p 80:8000 ${{ secrets.DOCKERHUB_USERNAME }}/bikespare_api:latest
+            sudo docker pull ${{ secrets.DOCKERHUB_USERNAME }}/usedcar_api:latest
+            sudo docker stop bike-share || true
+            sudo docker rm bike-share  || true
+            sudo docker run -d --name bike-share -p 80:8000 ${{ secrets.DOCKERHUB_USERNAME }}/usedcar_api:latest
           '
