@@ -66,6 +66,4 @@ if __name__ == "__main__":
             'posting_date': ['2021-04-04T03:21:07-0600']
     }
     
-    
-    
-make_prediction(input_data = data_in)
+    make_prediction(input_data = data_in)

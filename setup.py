@@ -8,8 +8,8 @@ from setuptools import find_packages, setup
 # Package meta-data.
 NAME = 'usedcar_model'
 DESCRIPTION = "Used car price prediction model"
-EMAIL = "------"
-AUTHOR = "----------"
+EMAIL = "ritam.banik@gmail.com"
+AUTHOR = "Ritam Banik"
 REQUIRES_PYTHON = ">=3.7.0"
 
 
@@ -45,6 +45,7 @@ setup(
     long_description_content_type="text/markdown",
     author=AUTHOR,
     author_email=EMAIL,
+    maintainer_email=EMAIL,
     python_requires=REQUIRES_PYTHON,
     packages=find_packages(exclude=("tests",)),
     package_data={"regression_model": ["VERSION"]},
