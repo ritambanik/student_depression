@@ -1,8 +1,8 @@
-name: CD for Used Car API
+name: Deploy to AWS ECS
 
 on:
   workflow_run:
-    workflows: ["CI for Used Card API"]
+    workflows: ["Train the model and publish the Docker image to AWS ECR"]
     types:
       - completed
 
