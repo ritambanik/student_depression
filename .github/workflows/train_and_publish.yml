@@ -96,7 +96,7 @@ jobs:
         id: build-image
         env:
           REGISTRY: ${{ steps.login-ecr-public.outputs.registry }}
-          REGISTRY_ALIAS: public.ecr.aws/x9b4p5t6
+          REGISTRY_ALIAS: x9b4p5t6
           REPOSITORY: ritambanik/ml-api
           IMAGE_TAG: ${{ env.VERSION }}
         run: |
