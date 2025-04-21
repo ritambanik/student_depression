@@ -94,7 +94,7 @@ jobs:
         id: build-image
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          ECR_REPOSITORY: ritambanik/ml-api
+          ECR_REPOSITORY: public.ecr.aws/x9b4p5t6/ritambanik/ml-api
           IMAGE_TAG: ${{ env.VERSION }}
         run: |
           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
