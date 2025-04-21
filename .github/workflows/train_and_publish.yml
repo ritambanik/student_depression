@@ -9,7 +9,6 @@ on:
   pull_request:
     branches:
       - main
-      - develop
 
 jobs:
   release-build:
@@ -94,9 +93,9 @@ jobs:
         id: build-image
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          ECR_REPOSITORY: ml_models_repo
+          ECR_REPOSITORY: ritambanik/ml-api
           IMAGE_TAG: ${{ env.VERSION }}
         run: |
-          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -f ./usedcar_api/Dockerfile ./usedcar_api
-          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+          docker build -t $ECR_REPOSITORY:$IMAGE_TAG ./usedcar_api
+          docker push $ECR_REPOSITORY:$IMAGE_TAG
           echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
