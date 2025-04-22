@@ -13,6 +13,10 @@ on:
 
 jobs:
   release-build:
+    env:
+      CLEARML_API_ACCESS_KEY: ${{ secrets.CLEARML_API_ACCESS_KEY }}
+      CLEARML_API_SECRET_KEY: ${{ secrets.CLEARML_API_SECRET_KEY }}
+      CLEARML_API_HOST: ${{ secrets.CLEARML_API_HOST }}
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false

@@ -49,7 +49,7 @@ def load_dataset(*, file_name: str) -> pd.DataFrame:
     return transformed
 
 
-def save_pipeline(*, pipeline_to_persist: Pipeline) -> None:
+def save_pipeline(*, pipeline_to_persist: Pipeline) -> str:
     """Persist the pipeline.
     Saves the versioned model, and overwrites any previous saved models. 
     This ensures that when the package is published, there is only one trained model that 
@@ -63,6 +63,8 @@ def save_pipeline(*, pipeline_to_persist: Pipeline) -> None:
     remove_old_pipelines(files_to_keep=[save_file_name])
     joblib.dump(pipeline_to_persist, save_path)
     print("Model/pipeline saved successfully.")
+    return save_file_name
+    
 
 
 def load_pipeline(*, file_name: str) -> Pipeline:
