@@ -14,6 +14,8 @@ from sklearn.pipeline import Pipeline
 from usedcar_model import __version__ as _version
 from usedcar_model.config.core import DATASET_DIR, TRAINED_MODEL_DIR, config
 
+from usedcar_model.train_pipeline import task
+
 
 ##  Pre-Pipeline Preparation
 
@@ -63,6 +65,9 @@ def save_pipeline(*, pipeline_to_persist: Pipeline) -> None:
     remove_old_pipelines(files_to_keep=[save_file_name])
     joblib.dump(pipeline_to_persist, save_path)
     print("Model/pipeline saved successfully.")
+    
+    # Register the model in ClearML
+    task.upload_artifact('model', artifact_object=save_file_name)
 
 
 def load_pipeline(*, file_name: str) -> Pipeline:
