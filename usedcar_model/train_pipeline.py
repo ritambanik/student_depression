@@ -21,7 +21,6 @@ task = Task.init(project_name="Vehicle Price Prediction", task_name="XGBoost Mod
 
 def run_training() -> None:
     
-       
     
     """
     Train the model.
@@ -56,6 +55,9 @@ def run_training() -> None:
     # Pipeline fitting
     xgb_model.fit(X_train, y_train)
     y_pred = xgb_model.predict(X_test)
+    
+    # Connect hyperparameters to ClearML for tracking
+    task.connect(xgb_model.named_steps['regressor'].get_params())  # This allows you to modify parameters from the UI
 
     # Evaluate the model
     mae = mean_absolute_error(y_test, y_pred)
@@ -70,8 +72,10 @@ def run_training() -> None:
     task.logger.report_scalar("performance", "R2", value=r2, iteration=0)
 
     # persist trained model
-    save_pipeline(pipeline_to_persist = xgb_model)
+    model_file_name = save_pipeline(pipeline_to_persist = xgb_model)
     
+     # Register the model in ClearML
+    task.upload_artifact('model', artifact_object=model_file_name)
     
 if __name__ == "__main__":
     run_training()

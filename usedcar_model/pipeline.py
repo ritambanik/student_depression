@@ -13,7 +13,6 @@ import xgboost as xgb
 from usedcar_model.config.core import config
 from usedcar_model.processing.features import FeatureImputer, CategorialColumnsEncoder
 
-from usedcar_model.train_pipeline import task
 
 import torch
 
@@ -46,6 +45,3 @@ xgb_model = Pipeline([
     )),
     ('regressor', xgb.XGBRegressor(**xgb_params))
 ])
-
-# Connect hyperparameters to ClearML for tracking
-task.connect(xgb_params)  # This allows you to modify parameters from the UI
