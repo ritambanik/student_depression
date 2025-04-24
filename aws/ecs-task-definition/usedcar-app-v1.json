@@ -2,7 +2,7 @@
     "taskDefinitionArn": "arn:aws:ecs:us-east-1:160224865545:task-definition/usedcar-app-v1:1",
     "containerDefinitions": [
         {
-            "name": "usedcar-api",
+            "name": "usedcar_app_v1",
             "image": "public.ecr.aws/x9b4p5t6/ritambanik/ml-api:0.0.1",
             "cpu": 0,
             "portMappings": [
