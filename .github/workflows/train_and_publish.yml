@@ -86,19 +86,3 @@ jobs:
         with:
            name: release-dists  
            path: dist/
-
-      - name: Set the model version as an environment variable
-        run: |
-          VER=$(cat usedcar_model/VERSION)
-          echo "VERSION=$VER" >> $GITHUB_ENV
-
-      - name: Build, tag, and push image to Amazon ECR
-        id: build-image
-        env:
-          REGISTRY: ${{ steps.login-ecr-public.outputs.registry }}
-          REGISTRY_ALIAS: x9b4p5t6
-          REPOSITORY: ritambanik/ml-api
-          IMAGE_TAG: ${{ env.VERSION }}
-        run: |
-          docker build -t $REGISTRY/$REGISTRY_ALIAS/$REPOSITORY:$IMAGE_TAG .
-          docker push $REGISTRY/$REGISTRY_ALIAS/$REPOSITORY:$IMAGE_TAG
