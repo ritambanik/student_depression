@@ -39,31 +39,18 @@ def make_prediction(*, input_data: Union[pd.DataFrame, dict]) -> dict:
 
 if __name__ == "__main__":
     data_in = {
-            'id': [73015911291],
-            'url': ['https://wyoming.craigslist.org/ctd/d/atlanta-2019-bmw-series-430i-gran-coupe/7301591129.html'],
-            'region': ['wyoming'],
-            'region_url': ['https://wyoming.craigslist.org'],
-            'year': [2019],
-            'manufacturer': ['bmw'],
-            'model': ['C4 series 430i gran coupe'],
-            'condition': ['good'],
-            'cylinders': [''],
-            'fuel': ['gas'],
-            'odometer': [22716],
-            'title_status': ['clean'],
-            'transmission': ['other'],
-            'VIN': ['WBA4J1C58KBM14708'],
-            'drive': ['rwd'],
-            'size': [''],
-            'type': ['coupe'],
-            'paint_color': ['blue'],
-            'image_url': ['https://images.craigslist.org/00Y0Y_lEUocjyRxaJz_0gw0co_600x450.jpg'],
-            'description': ['A great car in good condition.'],
-            'county': ['Los Angeles'],
-            'state': ['CA'],
-            'lat': [34.0522],
-            'long': [-118.2437],
-            'posting_date': ['2021-04-04T03:21:07-0600']
+            'age': [65.0],
+            'anaemia': [1],
+            'creatinine_phosphokinase': [160],
+            'diabetes': [1],
+            'ejection_fraction': [20],
+            'high_blood_pressure': [0],
+            'platelets': [327000.00],
+            'serum_creatinine': [27.00],
+            'serum_sodium': [116],
+            'sex': [0],
+            'smoking': [0],
+            'time': [8]
     }
     
     make_prediction(input_data = data_in)
